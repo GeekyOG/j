@@ -6,16 +6,13 @@ this.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(cacheData).then((cache) => {
       cache.addAll([
-        "/static/js/main.chunks.js",
-        "/static/js/bundle.js",
-        "/index.html",
-        "/users",
-        "/images/store.png",
-        "/images/bell.png",
-        "/images/settings.png",
-        "/images/pen.png",
-        "/components/BottomNav",
-        "/",
+        "https://j-opal.vercel.app/static/js/main.chunks.js",
+        "https://j-opal.vercel.app/static/js/bundle.js",
+        "https://j-opal.vercel.app/index.html",
+        "https://j-opal.vercel.app/users",
+        "https://j-opal.vercel.app/images/store.png",
+        "https://j-opal.vercel.app/images/pen.png",
+        "https://j-opal.vercel.app/pages/Users",
       ]);
     })
   );
