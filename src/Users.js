@@ -17,6 +17,7 @@ function Users() {
       })
       .catch((err) => {
         alert("err");
+        console.log(err.message);
         setData(JSON.parse(localStorage.getItem("data")));
       });
   }, []);

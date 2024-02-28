@@ -6,29 +6,38 @@ this.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(cacheData).then((cache) => {
       cache.addAll([
-        "https://j-opal.vercel.app/static/js/main.chunks.js",
-        "https://j-opal.vercel.app/static/js/bundle.js",
-        "https://j-opal.vercel.app/index.html",
-        "https://j-opal.vercel.app/users",
-        "https://j-opal.vercel.app/images/store.png",
-        "https://j-opal.vercel.app/images/pen.png",
-        "https://j-opal.vercel.app/pages/Users",
+        "/static/js/main.chunks.js",
+        "/static/js/bundle.js",
+        "/index.html",
+        "/users",
+        "/images/store.png",
+        "/images/pen.png",
+        "/pages/Users",
       ]);
     })
   );
 });
 
-this.addEventListener("fetch", (event) => {
-  if (!navigator.onLine) {
-    event.respondWith(
-      caches.match(event.request).then((res) => {
-        if (res) {
-          return res;
-        }
+// this.addEventListener("fetch", (event) => {
+//   if (!navigator.onLine) {
+//     event.respondWith(
+//       caches.match(event.request).then((res) => {
+//         if (res) {
+//           return res;
+//         }
 
-        let requestUrl = event.request.clone();
-        fetch(requestUrl);
-      })
-    );
-  }
+//         let requestUrl = event.request.clone();
+//         fetch(requestUrl);
+//       })
+//     );
+//   }
+// });
+
+this.addEventListener("fetch", (evt) => {
+  //console.log('fetch event', evt);
+  evt.respondWith(
+    caches.match(evt.request).then((cacheRes) => {
+      return cacheRes || fetch(evt.request);
+    })
+  );
 });

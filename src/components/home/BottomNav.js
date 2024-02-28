@@ -19,27 +19,22 @@ export default function LabelBottomNavigation() {
       onChange={handleChange}
       className="bottom-0 absolute right-0 left-0"
     >
-      hghgyh
       <BottomNavigationAction
-        label="Recents"
-        value="recents"
+        label="Home"
+        value="Home"
         icon={<RestoreIcon />}
       />
       <BottomNavigationAction
-        label="Favorites"
-        value="favorites"
+        label="Dashboard"
+        value="Dashboard"
         icon={<FavoriteIcon />}
       />
       <BottomNavigationAction
-        label="Nearby"
-        value="nearby"
+        label="Add"
+        value="Add"
         icon={<LocationOnIcon />}
       />
-      <BottomNavigationAction
-        label="Folder"
-        value="folder"
-        icon={<FolderIcon />}
-      />
+      <BottomNavigationAction label="More" value="More" icon={<FolderIcon />} />
     </BottomNavigation>
   );
 }
